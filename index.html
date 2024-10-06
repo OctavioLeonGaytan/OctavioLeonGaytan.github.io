@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+/* Estilo general del cuerpo */
+/* Estilo general del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: hsl(235, 31%, 31%);
+    margin: 0;
+    padding: 20px;
+}
+.button-container {
+    display: flex; /* Usar flexbox para alinear */
+    justify-content: flex-end; /* Alinear el contenido a la derecha */
+    margin-bottom: 20px; /* Espacio entre el botón y el formulario */
+}
+
+.btn-top {
+    background-color:hsl(236, 38%, 21%); /* Color azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center; /* Alinear el texto en el centro */
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+}
+
+.btn-top:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
+}
+
+
+/* Encabezado */
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Estilo del formulario */
+form {
+    background-color: hsl(236, 38%, 21%);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Estilo de las etiquetas */
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    color: #ffffff;
+}
+
+/* Estilo de los inputs */
+input[type="text"],
+input[type="email"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Estilo para las secciones de preguntas */
+.question-box {
+    background-color: hsl(235, 31%, 31%); /* Color de fondo para las preguntas */
+    border: 1px solid #ffffff; /* Borde más oscuro */
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0; /* Espacio entre preguntas */
+}
+
+/* Estilo de las preguntas */
+.star-rating {
+    display: flex; /* Usamos flexbox para alinearlas horizontalmente */
+    justify-content: flex-start; /* Alineación a la izquierda */
+    margin: 10px 0; /* Espacio arriba y abajo */
+}
+
+/* Estilo de los inputs de tipo radio */
+input[type="radio"] {
+    margin-right: 5px; /* Espacio entre el radio y la etiqueta */
+    
+}
+
+/* Estilo de los botones */
+button {
+    background-color: #28a745; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838; /* Verde más oscuro */
+}
+
+/* Estilo de las secciones */
+h2, h3 {
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Estilo de la ventana modal */
+/* Estilo de la ventana modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo más oscuro */
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: hsl(236, 38%, 21%); /* Color de fondo acorde con tu formulario */
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #ffffff; /* Borde blanco */
+    width: 80%; 
+    max-width: 500px; 
+    text-align: center;
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    color: #ffffff;
+}
+
+.close {
+    color: #ff0000; /* Color rojo para el botón de cerrar */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #ffffff; /* Color blanco al pasar el mouse */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo de los botones */
+button,
+input[type="submit"] {
+    background-color: #ff0000; /* Color verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block; /* Centrar usando margen */
+    margin: 20px auto; /* Centrado horizontalmente */
+    text-align: center; /* Alinear el texto en el centro */
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button id="conocer-clubs" class="btn-top" onclick="window.location.href='file:///C:/Users/OctavioLeon/OneDrive/Escritorio/Semestre%208%20_%202024/Platzy/English/pagina/index.html'">Conocer los Clubs</button>
+    </div>
+    
+    
+    <h1>Formulario de Clubs</h1>
+    <form id="submit-form" onsubmit="submitForm(event)">
+        <div class="question-box">
+        <h2>Sección De Información</h2>
+        <label for="name">Nombre:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Correo Electrónico:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        </div>
+
+        
+        <div class="question-box">
+        <h2>Sección Académica</h2>
+        <h3>1 = Muy Malo, 10 = Muy bueno</h3>
+        <label for="academica_pregunta1">1. ¿Cuánto te gusta resolver problemas matemáticos y geométricos?:</label><br>
+        <div>
+            <input type="radio" name="academica_pregunta1" value="1" required> 1
+            <input type="radio" name="academica_pregunta1" value="2"> 2
+            <input type="radio" name="academica_pregunta1" value="3"> 3
+            <input type="radio" name="academica_pregunta1" value="4"> 4
+            <input type="radio" name="academica_pregunta1" value="5"> 5
+            <input type="radio" name="academica_pregunta1" value="6"> 6
+            <input type="radio" name="academica_pregunta1" value="7"> 7
+            <input type="radio" name="academica_pregunta1" value="8"> 8
+            <input type="radio" name="academica_pregunta1" value="9"> 9
+            <input type="radio" name="academica_pregunta1" value="10"> 10
+        </div>
+        <br>
+        <label for="academica_pregunta2">2. ¿Te disfrutas leyendo novelas, poemas o cuentos?:</label><br>
+        <div>
+            <input type="radio" name="academica_pregunta2" value="1" required> 1
+            <input type="radio" name="academica_pregunta2" value="2"> 2
+            <input type="radio" name="academica_pregunta2" value="3"> 3
+            <input type="radio" name="academica_pregunta2" value="4"> 4
+            <input type="radio" name="academica_pregunta2" value="5"> 5
+            <input type="radio" name="academica_pregunta2" value="6"> 6
+            <input type="radio" name="academica_pregunta2" value="7"> 7
+            <input type="radio" name="academica_pregunta2" value="8"> 8
+            <input type="radio" name="academica_pregunta2" value="9"> 9
+            <input type="radio" name="academica_pregunta2" value="10"> 10
+        </div>
+        <br>
+        <label for="academica_pregunta3">3. ¿Estás interesado en aprender lenguajes de programación?:</label><br>
+        <div>
+            <input type="radio" name="academica_pregunta3" value="1" required> 1
+            <input type="radio" name="academica_pregunta3" value="2"> 2
+            <input type="radio" name="academica_pregunta3" value="3"> 3
+            <input type="radio" name="academica_pregunta3" value="4"> 4
+            <input type="radio" name="academica_pregunta3" value="5"> 5
+            <input type="radio" name="academica_pregunta3" value="6"> 6
+            <input type="radio" name="academica_pregunta3" value="7"> 7
+            <input type="radio" name="academica_pregunta3" value="8"> 8
+            <input type="radio" name="academica_pregunta3" value="9"> 9
+            <input type="radio" name="academica_pregunta3" value="10"> 10
+        </div>
+        <br>
+        <label for="academica_pregunta1">4. ¿Te gusta aprender idiomas nuevos?:</label><br>
+        <div>
+            <input type="radio" name="academica_pregunta4" value="1" required> 1
+            <input type="radio" name="academica_pregunta4" value="2"> 2
+            <input type="radio" name="academica_pregunta4" value="3"> 3
+            <input type="radio" name="academica_pregunta4" value="4"> 4
+            <input type="radio" name="academica_pregunta4" value="5"> 5
+            <input type="radio" name="academica_pregunta4" value="6"> 6
+            <input type="radio" name="academica_pregunta4" value="7"> 7
+            <input type="radio" name="academica_pregunta4" value="8"> 8
+            <input type="radio" name="academica_pregunta4" value="9"> 9
+            <input type="radio" name="academica_pregunta4" value="10"> 10
+        </div>
+        <br>
+        <label for="academica_pregunta1">5. ¿Te interesa la historia y la cultura?:</label><br>
+        <div>
+            <input type="radio" name="academica_pregunta5" value="1" required> 1
+            <input type="radio" name="academica_pregunta5" value="2"> 2
+            <input type="radio" name="academica_pregunta5" value="3"> 3
+            <input type="radio" name="academica_pregunta5" value="4"> 4
+            <input type="radio" name="academica_pregunta5" value="5"> 5
+            <input type="radio" name="academica_pregunta5" value="6"> 6
+            <input type="radio" name="academica_pregunta5" value="7"> 7
+            <input type="radio" name="academica_pregunta5" value="8"> 8
+            <input type="radio" name="academica_pregunta5" value="9"> 9
+            <input type="radio" name="academica_pregunta5" value="10"> 10
+        </div>
+        <br>
+        </div>
+        <div class="question-box">
+        <h2>Sección Deportiva</h2>
+        <h3>1 = Muy Malo, 10 = Muy bueno</h3>
+        <label for="deportiva_pregunta1">1. ¿Cuánto te gusta jugar baloncesto?:</label><br>
+        <div>
+            <input type="radio" name="deportiva_pregunta1" value="1" required> 1
+            <input type="radio" name="deportiva_pregunta1" value="2"> 2
+            <input type="radio" name="deportiva_pregunta1" value="3"> 3
+            <input type="radio" name="deportiva_pregunta1" value="4"> 4
+            <input type="radio" name="deportiva_pregunta1" value="5"> 5
+            <input type="radio" name="deportiva_pregunta1" value="6"> 6
+            <input type="radio" name="deportiva_pregunta1" value="7"> 7
+            <input type="radio" name="deportiva_pregunta1" value="8"> 8
+            <input type="radio" name="deportiva_pregunta1" value="9"> 9
+            <input type="radio" name="deportiva_pregunta1" value="10"> 10
+        </div>
+        <br>
+        <label for="deportiva_pregunta2">2. ¿Te disfrutas jugando voleibol?:</label><br>
+        <div>
+            <input type="radio" name="deportiva_pregunta2" value="1" required> 1
+            <input type="radio" name="deportiva_pregunta2" value="2"> 2
+            <input type="radio" name="deportiva_pregunta2" value="3"> 3
+            <input type="radio" name="deportiva_pregunta2" value="4"> 4
+            <input type="radio" name="deportiva_pregunta2" value="5"> 5
+            <input type="radio" name="deportiva_pregunta2" value="6"> 6
+            <input type="radio" name="deportiva_pregunta2" value="7"> 7
+            <input type="radio" name="deportiva_pregunta2" value="8"> 8
+            <input type="radio" name="deportiva_pregunta2" value="9"> 9
+            <input type="radio" name="deportiva_pregunta2" value="10"> 10
+        </div>
+        <br>
+        <label for="deportiva_pregunta3">3. ¿Estás apasionado por el fútbol?:</label><br>
+        <div>
+            <input type="radio" name="deportiva_pregunta3" value="1" required> 1
+            <input type="radio" name="deportiva_pregunta3" value="2"> 2
+            <input type="radio" name="deportiva_pregunta3" value="3"> 3
+            <input type="radio" name="deportiva_pregunta3" value="4"> 4
+            <input type="radio" name="deportiva_pregunta3" value="5"> 5
+            <input type="radio" name="deportiva_pregunta3" value="6"> 6
+            <input type="radio" name="deportiva_pregunta3" value="7"> 7
+            <input type="radio" name="deportiva_pregunta3" value="8"> 8
+            <input type="radio" name="deportiva_pregunta3" value="9"> 9
+            <input type="radio" name="deportiva_pregunta3" value="10"> 10
+        </div>
+        <br>
+        <label for="academica_pregunta4">4. :¿Te gusta correr o hacer atletismo?:</label><br>
+        <div>
+            <input type="radio" name="deportiva_pregunta4" value="1" required> 1
+            <input type="radio" name="deportiva_pregunta4" value="2"> 2
+            <input type="radio" name="deportiva_pregunta4" value="3"> 3
+            <input type="radio" name="deportiva_pregunta4" value="4"> 4
+            <input type="radio" name="deportiva_pregunta4" value="5"> 5
+            <input type="radio" name="deportiva_pregunta4" value="6"> 6
+            <input type="radio" name="deportiva_pregunta4" value="7"> 7
+            <input type="radio" name="deportiva_pregunta4" value="8"> 8
+            <input type="radio" name="deportiva_pregunta4" value="9"> 9
+            <input type="radio" name="deportiva_pregunta4" value="10"> 10
+        </div>
+        <br>
+        <label for="academica_pregunta5">5. ¿Te disfrutas haciendo ejercicio físico regularmente?:</label><br>
+        <div>
+            <input type="radio" name="deportiva_pregunta5" value="1" required> 1
+            <input type="radio" name="deportiva_pregunta5" value="2"> 2
+            <input type="radio" name="deportiva_pregunta5" value="3"> 3
+            <input type="radio" name="deportiva_pregunta5" value="4"> 4
+            <input type="radio" name="deportiva_pregunta5" value="5"> 5
+            <input type="radio" name="deportiva_pregunta5" value="6"> 6
+            <input type="radio" name="deportiva_pregunta5" value="7"> 7
+            <input type="radio" name="deportiva_pregunta5" value="8"> 8
+            <input type="radio" name="deportiva_pregunta5" value="9"> 9
+            <input type="radio" name="deportiva_pregunta5" value="10"> 10
+        </div>
+        <br>
+        </div>
+        <div class="question-box">
+        <h2>Sección Artística</h2>
+        <h3>1 = Muy Malo, 10 = Muy bueno</h3>
+        <label for="artistica_pregunta1">1. ¿Cuánto te gusta tocar un instrumento musical?:</label><br>
+        <div>
+            <input type="radio" name="artistica_pregunta1" value="1" required> 1
+            <input type="radio" name="artistica_pregunta1" value="2"> 2
+            <input type="radio" name="artistica_pregunta1" value="3"> 3
+            <input type="radio" name="artistica_pregunta1" value="4"> 4
+            <input type="radio" name="artistica_pregunta1" value="5"> 5
+            <input type="radio" name="artistica_pregunta1" value="6"> 6
+            <input type="radio" name="artistica_pregunta1" value="7"> 7
+            <input type="radio" name="artistica_pregunta1" value="8"> 8
+            <input type="radio" name="artistica_pregunta1" value="9"> 9
+            <input type="radio" name="artistica_pregunta1" value="10"> 10
+        </div>
+        <br>
+        <label for="artistica_pregunta2">2. ¿Te disfrutas bailando o haciendo danza?:</label><br>
+        <div>
+            <input type="radio" name="artistica_pregunta2" value="1" required> 1
+            <input type="radio" name="artistica_pregunta2" value="2"> 2
+            <input type="radio" name="artistica_pregunta2" value="3"> 3
+            <input type="radio" name="artistica_pregunta2" value="4"> 4
+            <input type="radio" name="artistica_pregunta2" value="5"> 5
+            <input type="radio" name="artistica_pregunta2" value="6"> 6
+            <input type="radio" name="artistica_pregunta2" value="7"> 7
+            <input type="radio" name="artistica_pregunta2" value="8"> 8
+            <input type="radio" name="artistica_pregunta2" value="9"> 9
+            <input type="radio" name="artistica_pregunta2" value="10"> 10
+        </div>
+        <br>
+        <label for="artistica_pregunta3">3. ¿Estás interesado en la banda de guerra o marcha?:</label><br>
+        <div>
+            <input type="radio" name="artistica_pregunta3" value="1" required> 1
+            <input type="radio" name="artistica_pregunta3" value="2"> 2
+            <input type="radio" name="artistica_pregunta3" value="3"> 3
+            <input type="radio" name="artistica_pregunta3" value="4"> 4
+            <input type="radio" name="artistica_pregunta3" value="5"> 5
+            <input type="radio" name="artistica_pregunta3" value="6"> 6
+            <input type="radio" name="artistica_pregunta3" value="7"> 7
+            <input type="radio" name="artistica_pregunta3" value="8"> 8
+            <input type="radio" name="artistica_pregunta3" value="9"> 9
+            <input type="radio" name="artistica_pregunta3" value="10"> 10
+        </div>
+        <br>
+        <label for="artistica_pregunta4">4. ¿Te gusta cantar en un coro o grupo musical?:</label><br>
+        <div>
+            <input type="radio" name="artistica_pregunta4" value="1" required> 1
+            <input type="radio" name="artistica_pregunta4" value="2"> 2
+            <input type="radio" name="artistica_pregunta4" value="3"> 3
+            <input type="radio" name="artistica_pregunta4" value="4"> 4
+            <input type="radio" name="artistica_pregunta4" value="5"> 5
+            <input type="radio" name="artistica_pregunta4" value="6"> 6
+            <input type="radio" name="artistica_pregunta4" value="7"> 7
+            <input type="radio" name="artistica_pregunta4" value="8"> 8
+            <input type="radio" name="artistica_pregunta4" value="9"> 9
+            <input type="radio" name="artistica_pregunta4" value="10"> 10
+        </div>
+        <br>
+        <label for="artistica_pregunta5">5. ¿Te disfrutas creando arte visual o pintura?:</label><br>
+        <div>
+            <input type="radio" name="artistica_pregunta5" value="1" required> 1
+            <input type="radio" name="artistica_pregunta5" value="2"> 2
+            <input type="radio" name="artistica_pregunta5" value="3"> 3
+            <input type="radio" name="artistica_pregunta5" value="4"> 4
+            <input type="radio" name="artistica_pregunta5" value="5"> 5
+            <input type="radio" name="artistica_pregunta5" value="6"> 6
+            <input type="radio" name="artistica_pregunta5" value="7"> 7
+            <input type="radio" name="artistica_pregunta5" value="8"> 8
+            <input type="radio" name="artistica_pregunta5" value="9"> 9
+            <input type="radio" name="artistica_pregunta5" value="10"> 10
+        </div>
+        <br>
+        </div>
+        <div class="question-box">
+        <h2>Sección Miscelánea</h2>
+        <h3>1 = Muy Malo, 10 = Muy bueno</h3>
+        <label for="miscelanea_pregunta1">1. ¿Te gusta trabajar en equipo y colaborar con otros?:</label><br>
+        <div>
+            <input type="radio" name="miscelanea_pregunta1" value="1" required> 1
+            <input type="radio" name="miscelanea_pregunta1" value="2"> 2
+            <input type="radio" name="miscelanea_pregunta1" value="3"> 3
+            <input type="radio" name="miscelanea_pregunta1" value="4"> 4
+            <input type="radio" name="miscelanea_pregunta1" value="5"> 5
+            <input type="radio" name="miscelanea_pregunta1" value="6"> 6
+            <input type="radio" name="miscelanea_pregunta1" value="7"> 7
+            <input type="radio" name="miscelanea_pregunta1" value="8"> 8
+            <input type="radio" name="miscelanea_pregunta1" value="9"> 9
+            <input type="radio" name="miscelanea_pregunta1" value="10"> 10
+        </div>
+        <br>
+
+        <label for="miscelanea_pregunta2">2. ¿Estás dispuesto a aprender nuevas habilidades?:</label><br>
+        <div>
+            <input type="radio" name="miscelanea_pregunta2" value="1" required> 1
+            <input type="radio" name="miscelanea_pregunta2" value="2"> 2
+            <input type="radio" name="miscelanea_pregunta2" value="3"> 3
+            <input type="radio" name="miscelanea_pregunta2" value="4"> 4
+            <input type="radio" name="miscelanea_pregunta2" value="5"> 5
+            <input type="radio" name="miscelanea_pregunta2" value="6"> 6
+            <input type="radio" name="miscelanea_pregunta2" value="7"> 7
+            <input type="radio" name="miscelanea_pregunta2" value="8"> 8
+            <input type="radio" name="miscelanea_pregunta2" value="9"> 9
+            <input type="radio" name="miscelanea_pregunta2" value="10"> 10
+        </div>
+        <br>
+
+        <label for="miscelanea_pregunta3">3. ¿Te gusta participar en competencias o torneos?:</label><br>
+        <div>
+            <input type="radio" name="miscelanea_pregunta3" value="1" required> 1
+            <input type="radio" name="miscelanea_pregunta3" value="2"> 2
+            <input type="radio" name="miscelanea_pregunta3" value="3"> 3
+            <input type="radio" name="miscelanea_pregunta3" value="4"> 4
+            <input type="radio" name="miscelanea_pregunta3" value="5"> 5
+            <input type="radio" name="miscelanea_pregunta3" value="6"> 6
+            <input type="radio" name="miscelanea_pregunta3" value="7"> 7
+            <input type="radio" name="miscelanea_pregunta3" value="8"> 8
+            <input type="radio" name="miscelanea_pregunta3" value="9"> 9
+            <input type="radio" name="miscelanea_pregunta3" value="10"> 10
+        </div>
+        <br>
+
+        <label for="miscelanea_pregunta4">4. ¿Te disfrutas ayudando a otros en la comunidad?:</label><br>
+        <div>
+            <input type="radio" name="miscelanea_pregunta4" value="1" required> 1
+            <input type="radio" name="miscelanea_pregunta4" value="2"> 2
+            <input type="radio" name="miscelanea_pregunta4" value="3"> 3
+            <input type="radio" name="miscelanea_pregunta4" value="4"> 4
+            <input type="radio" name="miscelanea_pregunta4" value="5"> 5
+            <input type="radio" name="miscelanea_pregunta4" value="6"> 6
+            <input type="radio" name="miscelanea_pregunta4" value="7"> 7
+            <input type="radio" name="miscelanea_pregunta4" value="8"> 8
+            <input type="radio" name="miscelanea_pregunta4" value="9"> 9
+            <input type="radio" name="miscelanea_pregunta4" value="10"> 10
+        </div>
+        <br>
+
+        <label for="miscelanea_pregunta5">5. ¿Te gusta planificar eventos o actividades?:</label><br>
+        <div>
+            <input type="radio" name="miscelanea_pregunta5" value="1" required> 1
+            <input type="radio" name="miscelanea_pregunta5" value="2"> 2
+            <input type="radio" name="miscelanea_pregunta5" value="3"> 3
+            <input type="radio" name="miscelanea_pregunta5" value="4"> 4
+            <input type="radio" name="miscelanea_pregunta5" value="5"> 5
+            <input type="radio" name="miscelanea_pregunta5" value="6"> 6
+            <input type="radio" name="miscelanea_pregunta5" value="7"> 7
+            <input type="radio" name="miscelanea_pregunta5" value="8"> 8
+            <input type="radio" name="miscelanea_pregunta5" value="9"> 9
+            <input type="radio" name="miscelanea_pregunta5" value="10"> 10
+        </div>
+        <br>
+        </div>
+        <input type="submit" value="Enviar">
+    </form>
+<!-- Ventana modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <h2>En hora buena</h2>
+                <h3>Te recomendamos unirte al siguiente club:</h3>
+                <p id="clubMessage"></p>
+            </div>
+        </div>
+    <script>
+    async function submitForm(event) {
+        event.preventDefault(); // Evitar el envío del formulario de manera tradicional.
+
+        // Obtener los datos del formulario
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const academica_pregunta1 = document.querySelector('input[name="academica_pregunta1"]:checked').value; // Obtener el valor seleccionado
+        const academica_pregunta2 = document.querySelector('input[name="academica_pregunta2"]:checked').value;
+        const academica_pregunta3 = document.querySelector('input[name="academica_pregunta3"]:checked').value;
+        const academica_pregunta4 = document.querySelector('input[name="academica_pregunta4"]:checked').value;
+        const academica_pregunta5 = document.querySelector('input[name="academica_pregunta5"]:checked').value;
+        const deportiva_pregunta1 = document.querySelector('input[name="deportiva_pregunta1"]:checked').value;
+        const deportiva_pregunta2 = document.querySelector('input[name="deportiva_pregunta2"]:checked').value;
+        const deportiva_pregunta3 = document.querySelector('input[name="deportiva_pregunta3"]:checked').value;
+        const deportiva_pregunta4 = document.querySelector('input[name="deportiva_pregunta4"]:checked').value;
+        const deportiva_pregunta5 = document.querySelector('input[name="deportiva_pregunta5"]:checked').value;
+        const artistica_pregunta1 = document.querySelector('input[name="artistica_pregunta1"]:checked').value;
+        const artistica_pregunta2 = document.querySelector('input[name="artistica_pregunta2"]:checked').value;
+	    const artistica_pregunta3 = document.querySelector('input[name="artistica_pregunta3"]:checked').value;
+	    const artistica_pregunta4 = document.querySelector('input[name="artistica_pregunta4"]:checked').value;
+	    const artistica_pregunta5 = document.querySelector('input[name="artistica_pregunta5"]:checked').value;
+        const miscelanea_pregunta1 = document.querySelector('input[name="miscelanea_pregunta1"]:checked').value;
+        const miscelanea_pregunta2 = document.querySelector('input[name="miscelanea_pregunta2"]:checked').value;
+        const miscelanea_pregunta3 = document.querySelector('input[name="miscelanea_pregunta3"]:checked').value;
+        const miscelanea_pregunta4 = document.querySelector('input[name="miscelanea_pregunta4"]:checked').value;
+        const miscelanea_pregunta5 = document.querySelector('input[name="miscelanea_pregunta5"]:checked').value;
+        // Lógica para determinar a qué club es apto el usuario
+        let clubMessage = '';
+       
+        // Sección Académica
+        
+        if (academica_pregunta1 >= 8) {
+        clubMessage += "¡Puedes unirte al Club de Matemáticas!<br>";
+        }
+
+        if (academica_pregunta2 >= 8) {
+        clubMessage += "¡Puedes unirte al Club de Literatura o Lectura!<br>";
+        }
+        if (academica_pregunta3 >= 8) {
+        clubMessage += "¡Puedes unirte al Club de Programación o Informática!<br>";
+        }
+        if (academica_pregunta4 >= 8) {
+        clubMessage += "¡Puedes unirte al Club de Idiomas!<br>";
+        }
+        if (academica_pregunta5 >= 8) {
+        clubMessage += "¡Puedes unirte al Club de Historia!<br>";
+        }
+
+        // Sección Deportiva
+        if (deportiva_pregunta1 >= 8) {
+        clubMessage += "¡Puedes unirte al Club de Baloncesto!<br>";
+        }
+        if (deportiva_pregunta2 >= 8) {
+        clubMessage += "¡Puedes unirte al Club de Voleibol!<br>";
+        }
+        if (deportiva_pregunta3 >= 8) {
+        clubMessage += "¡Puedes unirte al Club de Fútbol!<br>";
+        }
+        if (deportiva_pregunta4 >= 8) {
+        clubMessage += "¡Puedes unirte al Club de Atletismo!<br>";
+        }
+
+        // Sección Artística
+        if (artistica_pregunta1 >= 8 || artistica_pregunta4 >= 8) {
+        clubMessage += "¡Puedes unirte al Club de Música!<br>";
+        }
+        if (artistica_pregunta2 >= 8) {
+        clubMessage += "¡Puedes unirte al Club de Danza!<br>";
+        }
+        if (artistica_pregunta3 >= 8) {
+        clubMessage += "¡Puedes unirte al Club de Banda de Guerra!<br>";
+        }
+        if (clubMessage === '') {
+            clubMessage = "No cumples con los requisitos para unirte a ningún club.<br>";
+        }
+        
+
+        // Mostrar el mensaje sobre los clubes en la ventana modal
+        document.getElementById('clubMessage').innerHTML = clubMessage;
+        document.getElementById('myModal').style.display = "block";
+// Si necesitas hacer algo con estos valores, aquí puedes añadir más código
+//console.log(miscelanea_pregunta1, miscelanea_pregunta2, miscelanea_pregunta3, miscelanea_pregunta4, miscelanea_pregunta5);
+
+        // URL correcta de la API de Airtable
+        const url = 'https://api.airtable.com/v0/appTdC5f8i3jyjnJV/RegistroDeDatos';
+
+        // Hacer la solicitud POST a Airtable
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer patqNcBM08MiOoUEi.5cc9bd189ebb74a64a2f62a8b32be528ac5137cef0dd4a1b84695379424a392c', // Asegúrate de que esto sea correcto
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                fields: {
+                    Name: name,  // 'Name' debe coincidir con el nombre del campo en Airtable
+                    Email: email, // 'Email' debe coincidir con el nombre del campo en Airtable
+                    Academica_Pregunta1: academica_pregunta1,
+                    Academica_Pregunta2: academica_pregunta2,
+                    Academica_Pregunta3: academica_pregunta3,
+                    Academica_Pregunta4: academica_pregunta4,
+                    Academica_Pregunta5: academica_pregunta5,
+                    Deportiva_Pregunta1: deportiva_pregunta1,
+                    Deportiva_Pregunta2: deportiva_pregunta2,
+                    Deportiva_Pregunta3: deportiva_pregunta3,
+                    Deportiva_Pregunta4: deportiva_pregunta4,
+                    Deportiva_Pregunta5: deportiva_pregunta5,
+                    Artistica_Pregunta1: artistica_pregunta1,
+	                Artistica_Pregunta2: artistica_pregunta2,
+	                Artistica_Pregunta3: artistica_pregunta3,
+	                Artistica_Pregunta4: artistica_pregunta4,
+	                Artistica_Pregunta5: artistica_pregunta5,
+                    Miscelanea_Pregunta1: miscelanea_pregunta1,
+                    Miscelanea_Pregunta2: miscelanea_pregunta2,
+                    Miscelanea_Pregunta3: miscelanea_pregunta3,
+                    Miscelanea_Pregunta4: miscelanea_pregunta4,
+                    Miscelanea_Pregunta5: miscelanea_pregunta5
+	
+
+                }
+            })
+        });
+
+        if (response.ok) {
+            alert('Formulario enviado con éxito');
+        } else {
+            const errorData = await response.json(); // Obtener el mensaje de error
+            alert('Error al enviar el formulario: ' + errorData.message); // Mostrar el mensaje de error
+        }
+    }
+    
+    // Cerrar la ventana modal y redirigir a otra página
+    document.getElementById('closeModal').onclick = function() {
+        document.getElementById('myModal').style.display = "none";
+        window.location.href = 'file:///C:/Users/OctavioLeon/OneDrive/Escritorio/Semestre%208%20_%202024/Platzy/English/pagina_encuesta/index.html'; // Cambia esta URL por la que desees
+    }
+
+    // Cerrar la ventana modal si se hace clic fuera de ella y redirigir
+    window.onclick = function(event) {
+        const modal = document.getElementById('myModal');
+        if (event.target == modal) {
+            modal.style.display = "none";
+            window.location.href = 'file:///C:/Users/OctavioLeon/OneDrive/Escritorio/Semestre%208%20_%202024/Platzy/English/pagina_encuesta/index.html'; // Cambia esta URL por la que desees
+        }
+    }
+    </script>
+</body>
+</html>
+
+
+
